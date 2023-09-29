@@ -22,18 +22,19 @@ const store = useStore()
 const route = useRoute()
 const pokemonName = route.params.name
 // console.log(pokemonSpecies)
-let pkmon
+// let pkmon
 const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+const pkmon = await fetchPokemon(url)
 
-if (!store.currentIndex) {
-  pkmon = await fetchPokemon(url)
-} else {
-  if (store.pokemon[store.currentIndex].name !== pokemonName) {
-    pkmon = await fetchPokemon(url)
-  } else {
-    pkmon = store.pokemon[store.currentIndex]
-  }
-}
+// if (!store.currentIndex) {
+//   pkmon = await fetchPokemon(url)
+// } else {
+//   if (store.pokemon[store.currentIndex].name !== pokemonName) {
+//     pkmon = await fetchPokemon(url)
+//   } else {
+//     pkmon = store.pokemon[store.currentIndex]
+//   }
+// }
 const pokemon = pkmon[0]
 // console.log(pokemon)
 </script>

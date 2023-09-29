@@ -21,7 +21,7 @@ import { Pokemon } from '~/types/pokemon/pokemon';
 const store = useStore()
 
 let pokemonStatic: Array<Pokemon>
-if (store.pokemon.length < 0) {
+if (store.pokemon.length !== 60) {
   const url = `https://pokeapi.co/api/v2/pokemon?limit=60&offset=0`;
   pokemonStatic = await fetchPokemon(url)
   store.$state.pokemon = pokemonStatic
