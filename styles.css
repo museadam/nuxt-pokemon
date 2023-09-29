@@ -1,0 +1,22 @@
+
+body {
+	min-height: 100vh;
+	margin: 0;
+}
+
+.pokemon-card {
+  margin: 0.5rem;
+  padding: 1rem;
+  border-style: solid;
+  border-radius: 0.65rem;
+
+  border-color: rgb(251 191 36);
+  border-width: 4px;
+  background-color: rgb(219 234 254);
+  
+}
+
+.container {
+  margin: 0.5rem;
+  padding: 0.25rem;
+}
