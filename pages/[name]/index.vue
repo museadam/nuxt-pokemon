@@ -16,27 +16,11 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from '~/stores/index'
-const store = useStore()
-
 const route = useRoute()
 const pokemonName = route.params.name
-// console.log(pokemonSpecies)
-// let pkmon
 const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
 const pkmon = await fetchPokemon(url)
-
-// if (!store.currentIndex) {
-//   pkmon = await fetchPokemon(url)
-// } else {
-//   if (store.pokemon[store.currentIndex].name !== pokemonName) {
-//     pkmon = await fetchPokemon(url)
-//   } else {
-//     pkmon = store.pokemon[store.currentIndex]
-//   }
-// }
 const pokemon = pkmon[0]
-// console.log(pokemon)
 </script>
 
 <style>
@@ -53,5 +37,16 @@ const pokemon = pkmon[0]
 section {
   margin: 1rem;
 
+}
+
+@media (max-width: 620px) {
+  .cardContainer {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+  }
+
+  .card {
+    grid-column-start: 1;
+  }
 }
 </style>

@@ -1,7 +1,6 @@
 import type { Pokemon } from "~/types/pokemon/pokemon";
 
 export const fetchPokemon = async (url: string) => {
-  /* Get the response from the server endpoint */
   const data = {
     url,
   };
@@ -13,7 +12,5 @@ export const fetchPokemon = async (url: string) => {
       body: data,
     }
   );
-  // console.log(pokemon);
-
   return pokemon;
 };

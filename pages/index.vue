@@ -5,11 +5,13 @@
         @input="searchPokemon" />
     </div>
     <div v-if="pokemon">
-      <div class="cards ">
-        <div v-for="(poke, i) in pokemon" :key="i">
-          <PokemonPokeCard :pokemon="poke" :index="i" />
-        </div>
-      </div>
+      <ul class="cards">
+        <li v-for="(poke, i) in pokemon" :key="i">
+          <span @click="$router.push(`/${poke.name}`)">
+            <PokemonPokeCard :pokemon="poke" />
+          </span>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -21,12 +23,14 @@ import { Pokemon } from '~/types/pokemon/pokemon';
 const store = useStore()
 
 let pokemonStatic: Array<Pokemon>
-if (store.pokemon.length !== 60) {
-  const url = `https://pokeapi.co/api/v2/pokemon?limit=60&offset=0`;
+if (store.pokemon.length >= 1) {
+  pokemonStatic = store.pokemon
+} else {
+  const limit = 60
+  const offset = 0
+  const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
   pokemonStatic = await fetchPokemon(url)
   store.$state.pokemon = pokemonStatic
-} else {
-  pokemonStatic = store.pokemon
 }
 let pokemon = reactive(pokemonStatic)
 let searchTerm = ref('')
@@ -54,6 +58,11 @@ const searchPokemon = () => {
   grid-column-start: 2;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
 @media (max-width: 950px) {
   .cards {

@@ -1,5 +1,5 @@
 <template>
-  <div class="pokemon-card" @click="$router.push(`/${pokemon.name}`)">
+  <div class="pokemon-card">
     <div>
       <h2 class="title">
         {{ pokemon.name }}
@@ -12,12 +12,12 @@
       <div class="abilitiesSection">
 
         <h3>
-          Abilities:
+          Abilities:&nbsp
         </h3>
         <div v-for="(ability, j) in pokemon.abilities" :key="j">
 
-          <p class="abilityName">
-            {{ ability.ability.name }}<span v-if="j < pokemon.abilities.length - 1">, </span>
+          <p>
+            {{ ability.ability.name }}<span v-if="j < pokemon.abilities.length - 1">,&nbsp</span>
           </p>
         </div>
       </div>
@@ -27,49 +27,28 @@
           Height: {{ pokemon.height }}
         </h3>
 
-
         <h3>
           Weight: {{ pokemon.weight }}
         </h3>
       </div>
     </div>
-    <!-- <div v-if="!singlePokemonRoute">
-      <button  @click="$router.push(`/${pokemon.name}`)>
-        View
-      </button>
-    </div> -->
+
   </div>
 </template>
 
 <script setup lang="ts">
-import { useStore } from '~/stores/index'
 import { Pokemon } from '~/types/pokemon/pokemon';
 defineProps<{
-  pokemon: Pokemon,
-  index?: Number
+  pokemon: Pokemon
 }>()
-// const poke = ref(pokemon)
-const store = useStore()
 const route = useRoute()
 const singlePokemonRoute = route.params.name ?? false
-
-// function handleClick(i, poke) {
-//   store.$state.currentIndex = i
-//   route.push(`/${poke.name}`)
-// }
 </script>
 
 <style>
 .title:first-letter {
   text-transform: uppercase;
 }
-
-.abilityName {
-  padding: 3px;
-
-}
-
-
 
 .abilityName:first-letter {
   text-transform: uppercase;
@@ -83,8 +62,6 @@ const singlePokemonRoute = route.params.name ?? false
 img {
   width: 100%
 }
-
-
 
 .abilitiesSection {
   display: flex;
