@@ -26,9 +26,7 @@ button:hover {
   background-color: rgb(219 234 254);
   
 }
-.pokemon-card:hover {
-cursor: pointer;
-}
+
 
 .container {
   margin: 0.5rem;

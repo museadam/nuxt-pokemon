@@ -7,7 +7,7 @@
     <div v-if="pokemon">
       <ul class="cards">
         <li v-for="(poke, i) in pokemon" :key="i">
-          <span @click="$router.push(`/${poke.name}`)">
+          <span class="clickCard" @click="$router.push(`/${poke.name}`)">
             <PokemonPokeCard :pokemon="poke" />
           </span>
         </li>
@@ -46,6 +46,10 @@ const searchPokemon = () => {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.clickCard:hover {
+  cursor: pointer;
 }
 
 .searchContainer {
