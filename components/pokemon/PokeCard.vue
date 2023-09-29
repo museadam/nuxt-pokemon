@@ -34,7 +34,7 @@
       </div>
     </div>
     <!-- <div v-if="!singlePokemonRoute">
-      <button >
+      <button  @click="$router.push(`/${pokemon.name}`)>
         View
       </button>
     </div> -->
@@ -78,13 +78,7 @@ img {
   width: 100%
 }
 
-button {
-  margin: 0.5rem;
-  padding: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-radius: 0.4rem;
-}
+
 
 .abilitiesSection {
   display: flex;

@@ -1,8 +1,11 @@
 <template>
   <div class="container">
     <section>
-
+      <button @click="$router.push('/')">
+        Back
+      </button>
       <div class=" cardContainer ">
+
         <div class="card">
           <PokemonPokeCard :pokemon="pokemon" />
         </div>

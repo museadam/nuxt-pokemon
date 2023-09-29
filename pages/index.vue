@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div class="searchContainer">
-      {{ searchTerm }}
       <input class="search" id="search" type="text" v-model="searchTerm" placeholder="Enter a pokemon name..."
         @input="searchPokemon" />
     </div>
