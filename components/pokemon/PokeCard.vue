@@ -38,19 +38,25 @@
         View
       </button>
     </div> -->
-
   </div>
 </template>
 
 <script setup lang="ts">
-import { Pokemon } from "~/types/pokemon/pokemon"
-const route = useRoute()
-const singlePokemonRoute = route.params.name ?? false
-console.log(singlePokemonRoute)
+import { useStore } from '~/stores/index'
+import { Pokemon } from '~/types/pokemon/pokemon';
 defineProps<{
   pokemon: Pokemon,
+  index?: Number
 }>()
+// const poke = ref(pokemon)
+const store = useStore()
+const route = useRoute()
+const singlePokemonRoute = route.params.name ?? false
 
+// function handleClick(i, poke) {
+//   store.$state.currentIndex = i
+//   route.push(`/${poke.name}`)
+// }
 </script>
 
 <style>
@@ -82,6 +88,7 @@ img {
 
 .abilitiesSection {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 </style>

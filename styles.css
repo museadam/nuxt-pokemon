@@ -11,6 +11,9 @@ button {
   padding-right: 1rem;
   border-radius: 0.4rem;
 }
+button:hover {
+  cursor: pointer;
+  }
 
 .pokemon-card {
   margin: 0.5rem;
@@ -22,6 +25,9 @@ button {
   border-width: 4px;
   background-color: rgb(219 234 254);
   
+}
+.pokemon-card:hover {
+cursor: pointer;
 }
 
 .container {
